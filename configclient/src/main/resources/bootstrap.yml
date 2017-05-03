@@ -4,9 +4,15 @@ spring:
   cloud:
     config:
       uri: http://localhost:8888
+      fail-fast: true
 management:
   security:
     enabled: false
+endpoints:
+  configprops:
+    keys-to-sanitize: password,secret,key,token,.*credentials.*,vcap_services,message
+  env:
+    keys-to-sanitize: password,secret,key,token,.*credentials.*,vcap_services,message
 ---
 spring:
   cloud:
@@ -14,3 +20,10 @@ spring:
       uri: http://config-server:8888
   profiles:
     - docker
+---
+spring:
+  profiles:
+    - test
+  cloud:
+    config:
+      enabled: false
