@@ -1,0 +1,14 @@
+version: '2'
+services:
+  config-server:
+    image: barrycommins/configserver
+    ports:
+      - "8888:8888"
+  config-client:
+    image: barrycommins/configclient
+    depends_on:
+      - config-server
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    ports:
+      - "8080:8080"
