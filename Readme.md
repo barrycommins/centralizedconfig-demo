@@ -21,7 +21,7 @@ To change this, the following properties must be set on the client:
 
 ```properties
 endpoints.configprops.keys-to-sanitize=password,secret,key,token,.*credentials.*,vcap_services,message
-endpoints.env.keys-to-sanitize:=password,secret,key,token,.*credentials.*,vcap_services,message
+endpoints.env.keys-to-sanitize=password,secret,key,token,.*credentials.*,vcap_services,message
 ```
 
 It would now be show in the `/env` endpoint as, e.g.
